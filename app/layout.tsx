@@ -1,6 +1,12 @@
+import type { Metadata } from "next";
 import { ClerkProvider } from "@clerk/nextjs";
 import { Toaster } from "@/components/ui/toaster";
 import "./globals.css";
+
+export const metadata: Metadata = {
+  title: "Home - Chat to PDF",
+  description: "Upload files, chat with AI, and more!",
+};
 
 export default function RootLayout({
   children,
