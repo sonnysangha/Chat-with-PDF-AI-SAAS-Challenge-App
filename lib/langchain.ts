@@ -20,7 +20,7 @@ const model = new ChatOpenAI({
   modelName: "gpt-4o",
 });
 
-export const indexName = "papafam";
+export const indexName = "chatwithpdf";
 
 async function fetchMessagesFromDB(docId: string) {
   const { userId } = await auth();
