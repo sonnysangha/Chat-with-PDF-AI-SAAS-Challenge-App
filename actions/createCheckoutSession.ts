@@ -40,14 +40,14 @@ export async function createCheckoutSession(userDetails: UserDetails) {
     payment_method_types: ["card"],
     line_items: [
       {
-        price: "price_1Pgn5DC8Alswqr61VAlju4va",
+        price: "price_1Pjd6uSCr1Ne8DGFJZv5Yyr1",
         quantity: 1,
       },
     ],
     mode: "subscription",
     customer: stripeCustomerId,
     success_url: `${getBaseUrl()}/dashboard?upgrade=true`,
-    cancel_url: `${getBaseUrl()}/upgrade`,
+    cancel_url: `${getBaseUrl()}/dashboard/upgrade`,
   });
 
   return session.id;

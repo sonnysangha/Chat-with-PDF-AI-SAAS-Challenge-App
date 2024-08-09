@@ -66,12 +66,12 @@ export default function Home() {
 
             <p className="mt-6 text-lg leading-8 text-gray-600">
               Introducing{" "}
-              <span className="font-bold text-indigo-600">Chat with PDF.</span>
+              <span className="font-bold text-indigo-600">Chat to PDF.</span>
               <br />
               <br /> Upload your document, and our chatbot will answer
               questions, summarize content, and answer all your Qs. Ideal for
               everyone, <span className="text-indigo-600">
-                Chat with PDF
+                Chat to PDF
               </span>{" "}
               turns static documents into{" "}
               <span className="font-bold">dynamic conversations</span>,
