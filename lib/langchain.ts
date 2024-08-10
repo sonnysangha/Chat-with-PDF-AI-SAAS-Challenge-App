@@ -16,6 +16,10 @@ import { PineconeStore } from "@langchain/pinecone";
 import { Index, RecordMetadata } from "@pinecone-database/pinecone";
 import { auth } from "@clerk/nextjs/server";
 import { adminDb } from "@/firebaseAdmin";
+import {
+  ChatGoogleGenerativeAI,
+  GoogleGenerativeAIEmbeddings,
+} from "@langchain/google-genai";
 
 export const indexName = "chatwithpdf";
 
@@ -98,8 +102,8 @@ async function namespaceExists(
 
 export async function generateEmbeddingsInPineconeVectorStore(
   docId: string,
-  model: ChatOpenAI<ChatOpenAICallOptions>,
-  embeddings: OpenAIEmbeddings
+  model: ChatGoogleGenerativeAI | ChatOpenAI<ChatOpenAICallOptions>,
+  embeddings: OpenAIEmbeddings | GoogleGenerativeAIEmbeddings
 ) {
   const { userId } = await auth();
 
@@ -151,8 +155,8 @@ export async function generateEmbeddingsInPineconeVectorStore(
 export const generateLangchainCompletion = async (
   docId: string,
   question: string,
-  model: ChatOpenAI<ChatOpenAICallOptions>,
-  embeddings: OpenAIEmbeddings
+  model: ChatGoogleGenerativeAI | ChatOpenAI<ChatOpenAICallOptions>,
+  embeddings: OpenAIEmbeddings | GoogleGenerativeAIEmbeddings
 ) => {
   const pineconeVectorStore = await generateEmbeddingsInPineconeVectorStore(
     docId,
