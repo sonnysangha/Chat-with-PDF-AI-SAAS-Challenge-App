@@ -12,6 +12,7 @@
     "@clerk/nextjs": "^5.2.6",
     "@langchain/community": "^0.2.20",
     "@langchain/core": "^0.2.18",
+    "@langchain/google-genai": "^0.0.25",
     "@langchain/openai": "^0.2.5",
     "@langchain/pinecone": "^0.0.8",
     "@pinecone-database/pinecone": "^3.0.0",

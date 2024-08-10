@@ -1,9 +1,10 @@
-import { ChatOpenAI } from "@langchain/openai";
+import { ChatGoogleGenerativeAI } from "@langchain/google-genai";
+import { HarmBlockThreshold, HarmCategory } from "@google/generative-ai";
 import { PDFLoader } from "@langchain/community/document_loaders/fs/pdf";
 import { RecursiveCharacterTextSplitter } from "langchain/text_splitter";
-import { OpenAIEmbeddings } from "@langchain/openai";
 import { createStuffDocumentsChain } from "langchain/chains/combine_documents";
 import { ChatPromptTemplate } from "@langchain/core/prompts";
+import { GoogleGenerativeAIEmbeddings } from "@langchain/google-genai";
 import { createRetrievalChain } from "langchain/chains/retrieval";
 import { createHistoryAwareRetriever } from "langchain/chains/history_aware_retriever";
 import { HumanMessage, AIMessage } from "@langchain/core/messages";
@@ -15,9 +16,16 @@ import { adminDb } from "../firebaseAdmin";
 import { auth } from "@clerk/nextjs/server";
 
 // Initialize the OpenAI model with API key and model name
-const model = new ChatOpenAI({
-  apiKey: process.env.OPENAI_API_KEY,
-  modelName: "gpt-4o",
+const model = new ChatGoogleGenerativeAI({
+apiKey: process.env.GEMINI_API_KEY,
+modelName: "gemini-1.5-flash",
+maxOutputTokens: 2048,
+safetySettings: [
+{
+category: HarmCategory.HARM_CATEGORY_HARASSMENT,
+threshold: HarmBlockThreshold.BLOCK_LOW_AND_ABOVE,
+},
+],
 });
 
 export const indexName = "chatwithpdf";
@@ -118,7 +126,10 @@ export async function generateEmbeddingsInPineconeVectorStore(docId: string) {
 
   // Generate embeddings (numerical representations) for the split documents
   console.log("--- Generating embeddings... ---");
-  const embeddings = new OpenAIEmbeddings();
+  const embeddings = new GoogleGenerativeAIEmbeddings({
+  apiKey: process.env.GEMINI_API_KEY,
+  modelName: "embedding-001",
+  });
 
   const index = await pineconeClient.index(indexName);
   const namespaceAlreadyExists = await namespaceExists(index, docId);
