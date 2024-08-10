@@ -1,3 +1,4 @@
+[![Netlify Status](https://api.netlify.com/api/v1/badges/201f1501-40ab-4368-9da1-5beb4780c83a/deploy-status)](https://app.netlify.com/sites/chattopdf/deploys)
 # AI SaaS Challenge Event - 5 Day Challenge
 
 Welcome to the AI SaaS Challenge! All the details you need to get started and participate in the challenge are below. Let's get ready to elevate our skills and build something amazing together!
