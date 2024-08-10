@@ -4,7 +4,9 @@ import { getStorage } from "firebase-admin/storage";
 let app: App;
 
 if (getApps().length === 0) {
-  const serviceKey = JSON.parse(process.env.FIREBASE_SERVICE_ACCOUNT_KEY! as string);
+  const serviceKey = JSON.parse(
+    process.env.FIREBASE_SERVICE_ACCOUNT_KEY! as string
+  );
   app = initializeApp({
     credential: cert(serviceKey),
   });

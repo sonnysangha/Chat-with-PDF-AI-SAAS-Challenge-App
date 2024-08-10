@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { ClerkProvider } from "@clerk/nextjs";
 import { Toaster } from "@/components/ui/toaster";
 import "./globals.css";
+import ConfigForm from "@/components/ConfigForm";
 
 export const metadata: Metadata = {
   title: "Home - Chat to PDF",
@@ -19,6 +20,7 @@ export default function RootLayout({
         <body className="min-h-screen h-screen overflow-hidden flex flex-col">
           <Toaster />
           {children}
+          <ConfigForm />
         </body>
       </html>
     </ClerkProvider>

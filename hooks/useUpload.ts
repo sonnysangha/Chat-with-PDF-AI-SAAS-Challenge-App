@@ -1,6 +1,7 @@
 "use client";
 
 import { generateEmbeddings } from "@/actions/generateEmbeddings";
+import { useConfigStore } from "@/components/stores/useConfig";
 import { db, storage } from "@/firebase";
 import { useUser } from "@clerk/nextjs";
 import { doc, setDoc } from "firebase/firestore";
@@ -19,6 +20,10 @@ export enum StatusText {
 export type Status = StatusText[keyof StatusText];
 
 function useUpload() {
+  const [openAIKey, isGemini] = useConfigStore((state) => [
+    state.openAIKey,
+    state.isGemini,
+  ]);
   const [progress, setProgress] = useState<number | null>(null);
   const [fileId, setFileId] = useState<string | null>(null);
   const [status, setStatus] = useState<Status | null>(null);
@@ -67,7 +72,11 @@ function useUpload() {
         });
 
         setStatus(StatusText.GENERATING);
-        await generateEmbeddings(fileIdToUploadTo);
+        if (openAIKey) {
+          await generateEmbeddings(fileIdToUploadTo, openAIKey, isGemini);
+        } else {
+          await generateEmbeddings(fileIdToUploadTo, undefined, isGemini);
+        }
 
         setFileId(fileIdToUploadTo);
       }
