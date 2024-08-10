@@ -28,6 +28,7 @@ export async function generateEmbeddings(
 export async function getOpenAiModel(openApiKey?: string, isGemini?: boolean) {
   let model;
   let embeddings;
+  console.log(openApiKey, isGemini);
   if (isGemini) {
     model = new ChatGoogleGenerativeAI({
       apiKey: process.env.GEMINI_API_KEY,
@@ -44,8 +45,7 @@ export async function getOpenAiModel(openApiKey?: string, isGemini?: boolean) {
       apiKey: process.env.GEMINI_API_KEY,
       modelName: "embedding-001",
     });
-  }
-  if (openApiKey) {
+  } else if (openApiKey) {
     model = new ChatOpenAI({
       apiKey: openApiKey,
       modelName: "gpt-4o",
