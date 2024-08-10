@@ -134,9 +134,9 @@ function ConfigForm() {
       </SheetTrigger>
       <SheetContent>
         <SheetHeader>
-          <SheetTitle>PaperPal Powered by OpenAI</SheetTitle>
+          <SheetTitle>Chat to PDF Powered by OpenAI</SheetTitle>
           <SheetDescription>
-            PaperPal leverages the capabilities of OpenAI to bring you
+            Chat to PDF leverages the capabilities of OpenAI to bring you
             cutting-edge features.
           </SheetDescription>
         </SheetHeader>
