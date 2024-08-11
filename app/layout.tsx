@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Analytics } from "@vercel/analytics/react"
+import { SpeedInsights } from "@vercel/speed-insights/next"
 import { ClerkProvider } from "@clerk/nextjs";
 import { Toaster } from "@/components/ui/toaster";
 import "./globals.css";
@@ -24,6 +25,7 @@ export default function RootLayout({
           <ConfigForm />
         </body>
       </html>
+      <SpeedInsights/>
       <Analytics/>
     </ClerkProvider>
   );
