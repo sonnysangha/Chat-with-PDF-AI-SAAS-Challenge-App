@@ -6,8 +6,11 @@ import { auth } from "@clerk/nextjs/server";
 import { getOpenAiModel } from "./generateEmbeddings";
 import { generateLangchainCompletion } from "@/lib/langchain";
 
-const PRO_LIMIT = 20;
-const FREE_LIMIT = 2;
+//Limit for asking questions
+//For PRO users, the limit is 100
+//For FREE users, the limit is 3
+const PRO_LIMIT = 100;
+const FREE_LIMIT = 3;
 
 export async function askQuestion({
   id,
