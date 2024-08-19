@@ -1,11 +1,15 @@
+"use client";
 import { SignedIn, UserButton } from "@clerk/nextjs";
 import Link from "next/link";
 import { Button } from "./ui/button";
 import { FilePlus2 } from "lucide-react";
 import UpgradeButton from "./UpgradeButton";
 import ModeToggle from "./ModeToggle";
+import { useTheme } from "next-themes";
+import { dark } from "@clerk/themes";
 
 function Header() {
+  const { theme } = useTheme();
   return (
     <div className="flex justify-between bg-white shadow-sm p-5 border-b dark:bg-gray-800">
       <Link href="/dashboard" className="text-2xl">
@@ -30,7 +34,16 @@ function Header() {
 
           <UpgradeButton />
           <ModeToggle />
-          <UserButton />
+          <UserButton
+            appearance={{
+              baseTheme: theme === "dark" ? dark : [],
+            }}
+            userProfileProps={{
+              appearance: {
+                baseTheme: theme === "dark" ? dark : [],
+              },
+            }}
+          />
         </div>
       </SignedIn>
     </div>
