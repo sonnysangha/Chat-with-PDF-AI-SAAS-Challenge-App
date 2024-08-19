@@ -3,6 +3,7 @@ import Link from "next/link";
 import { Button } from "./ui/button";
 import { FilePlus2 } from "lucide-react";
 import UpgradeButton from "./UpgradeButton";
+import ModeToggle from "./ModeToggle";
 
 function Header() {
   return (
@@ -28,6 +29,7 @@ function Header() {
           </Button>
 
           <UpgradeButton />
+          <ModeToggle />
           <UserButton />
         </div>
       </SignedIn>
