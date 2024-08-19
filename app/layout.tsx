@@ -5,7 +5,7 @@ import { ClerkProvider } from "@clerk/nextjs";
 import { Toaster } from "@/components/ui/toaster";
 import "./globals.css";
 import ConfigForm from "@/components/ConfigForm";
-import { ThemeProvider } from '@/components/theme-provider';
+import { ThemeProvider } from "@/components/theme-provider";
 
 export const metadata: Metadata = {
   title: "Home - Chat to PDF",
@@ -20,22 +20,21 @@ export default function RootLayout({
   return (
     <ClerkProvider>
       <html lang="en">
-        <body className="min-h-screen h-screen overflow-hidden flex flex-col">
-          
+        <body className="min-h-screen h-screen overflow-hidden flex flex-col bg-white dark:bg-gray-900">
           <ThemeProvider
             attribute="class"
             defaultTheme="system"
             enableSystem
             disableTransitionOnChange
           >
-          <Toaster />
-          {children}
+            {children}
+            <Toaster />
           </ThemeProvider>
           <ConfigForm />
         </body>
       </html>
-      <SpeedInsights/>
-      <Analytics/>
+      <SpeedInsights />
+      <Analytics />
     </ClerkProvider>
   );
 }
