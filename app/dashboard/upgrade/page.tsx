@@ -85,11 +85,11 @@ function PricingPage() {
             >
               <li className="flex gap-x-3">
                 <CheckIcon className="h-6 w-5 flex-none text-indigo-600 dark:text-indigo-400" />
-                2 Documents
+                10 Documents
               </li>
               <li className="flex gap-x-3">
                 <CheckIcon className="h-6 w-5 flex-none text-indigo-600 dark:text-indigo-400" />
-                Up to 3 messages per document
+                Up to 20 messages per document
               </li>
               <li className="flex gap-x-3">
                 <CheckIcon className="h-6 w-5 flex-none text-indigo-600 dark:text-indigo-400" />
@@ -133,7 +133,7 @@ function PricingPage() {
             >
               <li className="flex gap-x-3">
                 <CheckIcon className="h-6 w-5 flex-none text-indigo-600" />
-                Store upto 20 Documents
+                Store upto 499 Documents
               </li>
               <li className="flex gap-x-3">
                 <CheckIcon className="h-6 w-5 flex-none text-indigo-600" />
@@ -141,7 +141,7 @@ function PricingPage() {
               </li>
               <li className="flex gap-x-3">
                 <CheckIcon className="h-6 w-5 flex-none text-indigo-600" />
-                Up to 100 messages per document
+                Up to 499 messages per document
               </li>
               <li className="flex gap-x-3">
                 <CheckIcon className="h-6 w-5 flex-none text-indigo-600" />

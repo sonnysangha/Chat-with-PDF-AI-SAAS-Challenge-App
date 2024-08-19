@@ -7,10 +7,10 @@ import { getOpenAiModel } from "./generateEmbeddings";
 import { generateLangchainCompletion } from "@/lib/langchain";
 
 //Limit for asking questions
-//For PRO users, the limit is 100
-//For FREE users, the limit is 3
-const PRO_LIMIT = 100;
-const FREE_LIMIT = 3;
+//For PRO users, the limit is 499
+//For FREE users, the limit is 20
+const PRO_LIMIT = 499;
+const FREE_LIMIT = 20;
 
 export async function askQuestion({
   id,
