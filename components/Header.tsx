@@ -7,7 +7,7 @@ import ModeToggle from "./ModeToggle";
 
 function Header() {
   return (
-    <div className="flex justify-between bg-white shadow-sm p-5 border-b">
+    <div className="flex justify-between bg-white shadow-sm p-5 border-b dark:bg-gray-800">
       <Link href="/dashboard" className="text-2xl">
         Chat to <span className="text-indigo-600">PDF</span>
       </Link>
