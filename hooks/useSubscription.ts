@@ -7,7 +7,7 @@ import { useEffect, useState } from "react";
 import { useCollection, useDocument } from "react-firebase-hooks/firestore";
 
 // number of docs the user is allowed to have
-const PRO_LIMIT = 499;
+const PRO_LIMIT = 200;
 const FREE_LIMIT = 10;
 
 function useSubscription() {

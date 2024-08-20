@@ -108,7 +108,7 @@ function PricingPage() {
             </p>
             <p className="mt-6 flex items-baseline gap-x-1">
               <span className="text-4xl font-bold tracking-tight text-gray-900 dark:text-gray-400">
-                ₹499
+                ₹99
               </span>
               <span className="text-sm font-semibold leading-6 text-gray-600 dark:text-gray-100">
                 / month
@@ -133,7 +133,7 @@ function PricingPage() {
             >
               <li className="flex gap-x-3">
                 <CheckIcon className="h-6 w-5 flex-none text-indigo-600" />
-                Store upto 499 Documents
+                Store upto 200 Documents
               </li>
               <li className="flex gap-x-3">
                 <CheckIcon className="h-6 w-5 flex-none text-indigo-600" />
@@ -141,7 +141,7 @@ function PricingPage() {
               </li>
               <li className="flex gap-x-3">
                 <CheckIcon className="h-6 w-5 flex-none text-indigo-600" />
-                Up to 499 messages per document
+                Up to 200 messages per document
               </li>
               <li className="flex gap-x-3">
                 <CheckIcon className="h-6 w-5 flex-none text-indigo-600" />
