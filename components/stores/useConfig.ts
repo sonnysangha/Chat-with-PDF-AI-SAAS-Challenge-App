@@ -8,7 +8,7 @@ interface ConfigState {
 }
 
 export const useConfigStore = create<ConfigState>((set) => ({
-  isGemini: false,
+  isGemini: true,
   setIsGemini: (isGemini: boolean) => {
     set({ isGemini });
   },
