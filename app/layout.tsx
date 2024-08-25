@@ -27,10 +27,11 @@ export default function RootLayout({
             enableSystem
             disableTransitionOnChange
           >
+            <ConfigForm />
+
             {children}
             <Toaster />
           </ThemeProvider>
-          <ConfigForm />
         </body>
       </html>
       <SpeedInsights />
