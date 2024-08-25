@@ -126,7 +126,7 @@ function ConfigForm() {
         <div
           className={cn(
             buttonVariants({ size: "icon" }),
-            `fixed right-0 top-1/3 lg:top-1/4 rounded-none rounded-l-lg bg-blue-500 p-2 text-white`
+            `fixed right-0 top-1/3 lg:top-1/4 rounded-none rounded-l-lg bg-blue-500 p-2 text-white z-20`
           )}
         >
           <CogIcon className="size-10 animate-spin-slow" />
