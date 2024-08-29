@@ -68,9 +68,21 @@ function FileUploader() {
   const { getRootProps, getInputProps, isDragActive, isFocused, isDragAccept } =
     useDropzone({
       onDrop,
+      maxSize: 1024 * 1024 * 5, //5MB
       maxFiles: 1,
+      multiple: false, //only single file can be uploaded
       accept: {
         "application/pdf": [".pdf"],
+      },
+
+      onDropRejected(fileRejections, event){
+        //if file size is greater than 5MB
+        toast({
+           //display error message
+          title: "Error",
+          //since only single file can be uploaded
+          description: fileRejections[0].errors.map((item) => item.message).join(","),
+        });
       },
     });
 

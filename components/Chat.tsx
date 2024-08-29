@@ -12,6 +12,7 @@ import { db } from "@/firebase";
 import { askQuestion } from "@/actions/askQuestion";
 import ChatMessage from "./ChatMessage";
 import { useToast } from "./ui/use-toast";
+import { useConfigStore } from "./stores/useConfig";
 
 export type Message = {
   id?: string;
@@ -21,6 +22,10 @@ export type Message = {
 };
 
 function Chat({ id }: { id: string }) {
+  const [isGemini, openAIKey] = useConfigStore((state) => [
+    state.isGemini,
+    state.openAIKey,
+  ]);
   const { user } = useUser();
   const { toast } = useToast();
 
@@ -95,7 +100,18 @@ function Chat({ id }: { id: string }) {
     ]);
 
     startTransition(async () => {
-      const { success, message } = await askQuestion(id, q);
+      const { success, message } = await (openAIKey
+        ? askQuestion({
+            id,
+            question: q,
+            isGemini,
+            openApiKey: openAIKey,
+          })
+        : askQuestion({
+            id,
+            question: q,
+            isGemini,
+          }));
 
       console.log("DEBUG", success, message);
 

@@ -1,5 +1,11 @@
+import type { Metadata } from "next";
 import Header from "@/components/Header";
 import { ClerkLoaded } from "@clerk/nextjs";
+
+export const metadata: Metadata = {
+  title: "Dashboard - Chat to PDF",
+  description: "Upload files, chat with AI, and more!",
+};
 
 function DashboardLayout({ children }: { children: React.ReactNode }) {
   return (
